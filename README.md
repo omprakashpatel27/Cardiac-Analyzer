@@ -6,6 +6,9 @@ https://cardiacanalyzer.herokuapp.com/
 ## Description:
 This website tends to analyze your medical report using a random forest classifier machine learning model. You just have to enter your medical report values and it predicts the results of your medical report. The accuracy of the current version may not be that perfect as there is very few datasets.
 
+## Tech Stack:
+HTML, CSS, BOOTSTRAP, Chart.js , Flask , Postgresql , ML Algorithm
+
 ## How to Use :
 ### Step 1 : Register on website 
 ![image](https://user-images.githubusercontent.com/59342793/158007654-725edced-3965-4636-99a5-ebf99053b960.png)
