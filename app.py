@@ -14,16 +14,6 @@ regex = r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b'
 
 global loggeduser
 global loggedmail
-ENV = 'prod'
-
-if ENV == 'dev':
-     flask_app.debug = True
-     flask_app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:1234@localhost/HDP'
-else:
-     flask_app.debug = False
-     flask_app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://cfhhgqvsyharbr:4109e395e988c7da5fb6af1509c6f49359c9119f9bc2f978d26bd37e85289d4d@ec2-3-216-221-31.compute-1.amazonaws.com:5432/dbjnhppt4gf5gp'
-
-flask_app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(flask_app)
 
