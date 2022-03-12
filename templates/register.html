@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title> Register </title>
+        <link rel="stylesheet" href="../static/style.css">              
+    </head>
+    <body>
+	<div class="loginBox"> <img class="user" src="https://i.ibb.co/yVGxFPR/2.png" height="100px" width="100px">
+	<h3>Register here</h3>
+	{%if message %}
+            <p style="color: #59238F; text-align : center">{{message | safe}}</p>
+        {% endif %}
+	<form action="/submit" method="POST">
+		<div class="inputBox">
+		<input id="username" name="username" type="text" placeholder="Enter Your Username"/>
+    		<input id="password" name="password" type="password" placeholder="Enter Your Password, it should be numeric"/>
+		<input id="email" name="email" type="text" placeholder="Enter Your Email ID" class="textbox"/>
+	  	</div> 
+		<input type="submit" value="Sign Up">
+	</form> 
+	<p style="color: #59238F; text-align : center"><a href="/login">Login Here</p>
+	<div class="text-center">
+	</div>
+  </div>
+</body>
+</html>

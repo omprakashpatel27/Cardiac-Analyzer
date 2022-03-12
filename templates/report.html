@@ -1,0 +1,226 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title> Home </title>     
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+  </head>
+<body>
+<section style="background : url(https://www.cerner.com/-/media/cerner-media-united-states/blog-images/blog_machine-learning-2.jpg?vs=1)">
+  <div class="container py-5">
+    <div class="row">
+      <div class="col">
+        <nav aria-label="breadcrumb" class="bg-light rounded-3 p-3 mb-4">
+          <center><h3>Report Status</h3></center>
+        </nav>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="card mb-4">
+          <div class="card-body text-center">
+            <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar" class="rounded-circle img-fluid" style="width: 150px;">
+            <h5 class="my-3">Status : </h5>
+            <h5 class="my-3"> 
+              {%if data == 0 %}
+              <h4 class ="my-3" style="color : green">Normal</h4>
+              {% else %}
+              <h4 class ="my-3" style="color : red">High Risk</h4>
+              {%endif%}
+            </h5>
+          </div>
+        </div>
+        <div class="card mb-4 mb-lg-0">
+          <div class="card-body p-0">
+            <!-- <ul class="list-group list-group-flush rounded-3"> -->
+              <canvas id="myChart" height = "380" style="width:100%;max-width:600px"></canvas>
+            <!-- </ul> -->
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-8">
+        <div class="card mb-4">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Full Name :</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">{{name}}</p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Email :</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">{{email}}</p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Age :</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">{{age}}</p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Gender :</p>
+              </div>
+              <div class="col-sm-9">
+                  {%if gender == 0 %}
+                    <p class="text-muted mb-0">Female</p>
+                  {% else %}
+                    <p class="text-muted mb-0">Male</p>
+                  {%endif%}
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Report :</p>
+              </div>
+              <div class="col-sm-9">
+                  {%if data == 0 %}
+                    <p class="text-muted mb-0" style = "color : green"> Normal </p>
+                  {% else %}
+                    <p class="text-muted mb-0" style = "color : red"> Danger </p>
+                  {%endif%}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6">
+            <div class="card mb-4 mb-md-0">
+              <div class="card-body">
+                <p class="mb-4"><span class="text-primary font-italic me-1"></span> <a href = "https://www.healthline.com/health/high-cholesterol/levels-by-age" target="_blank" style = "color : black; font-weight: bold; text-decoration: none">Cholestrol Level (in mg/dL) : </a></p>
+                  {%if chol < 200 %}
+                  <h4 style = "color : green">{{chol}} , Normal</h4>
+                  {%else%}
+                  <h4 style = "color : red">{{chol}}, High Cholestrol</h4>
+                  {%endif%}
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card mb-4 mb-md-0">
+              <div class="card-body">
+                <p class="mb-4"><span class="text-primary font-italic me-1"></span> <a href = "https://www.heart.org/en/health-topics/high-blood-pressure/understanding-blood-pressure-readings" target="_blank" style = "color : black; font-weight: bold; text-decoration: none">Resting Blood Pressure(in mm Hg) :</a></p>
+                {%if trestbps > 120 %}
+                <h4 style = "color : red"> {{trestbps}} , High Blood Pressure </h4>
+                {%elif trestbps < 80 %}
+                <h4 style = "color : red"> {{trestbps}} , Low Blood Pressure </h4>
+                {%else%}
+                <h4 style = "color : green"> {{trestbps}} , Normal </h4>
+                {%endif%}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <p></p>
+
+         <div class="row">
+          <div class="col-md-6">
+            <div class="card mb-4 mb-md-0">
+              <div class="card-body">
+                <p class="mb-4"><span class="text-primary font-italic me-1"></span> <a href = "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3131711/" target="_blank" style = "color : black; font-weight: bold; text-decoration: none">Chest Pain Evaluation :</a></p>
+                {%if cp == 1 %}
+                <h4 style = "color : red">TYPICAL ANGINA</h4>
+                {%elif cp == 2 %}
+                <h4 style = "color : red">ATYPICAL ANGINA</h4>
+                {%elif cp == 3 %}
+                <h4 style = "color : green">NON AGINAL PAIN</h4>
+                {%else%}
+                <h4 style = "color : green">ASYMPTOMATIC</h4>
+                {%endif%}
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card mb-4 mb-md-0">
+              <div class="card-body">
+                <p class="mb-4"><span class="text-primary font-italic me-1"></span> <a href = "https://www.medicalnewstoday.com/articles/317466" target="_blank" style = "color : black; font-weight: bold; text-decoration: none">Fasting Blood Sugar (in mg/dL) :</a></p>
+                {%if fbs == 1 %}
+                <h4 style = "color : red">Diabetic</h4>
+                {%else%}
+                <h4 style = "color : green">Normal</h4>
+                {%endif%}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <p></p>       
+
+        <div class="row">
+          <div class="col-md-6">
+            <div class="card mb-4 mb-md-0">
+              <div class="card-body">
+                <p class="mb-4"><span class="text-primary font-italic me-1"></span> <a href = "https://www.betterhealth.vic.gov.au/health/conditionsandtreatments/ecg-test" target="_blank" style = "color : black; font-weight: bold; text-decoration: none">Resting Electrocardiographic Results : </a></p>
+                {%if restecg == 0 %}
+                <h4 style = "color : green">Normal</h4>
+                {%elif restecg == 1%}
+                <h4 style = "color : red">ST-T wave Abnormality</h4>
+                {%else%}
+                <h4 style = "color : red">Left Ventricular Hypertrophy</h4>
+                {%endif%}
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card mb-4 mb-md-0">
+              <div class="card-body">
+                <p class="mb-4"><span class="text-primary font-italic me-1"></span> <a href = "https://www.mayoclinic.org/healthy-lifestyle/fitness/in-depth/exercise-intensity/art-20046887#:~:text=You%20can%20calculate%20your%20maximum,beat%20per%20minute%20during%20exercise." target="_blank" style = "color : black; font-weight: bold; text-decoration: none">Maximum heart rate achieved :</a></p>
+                <h4>{{thalach}}</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+  <script>
+      var xValues = ["CORONARY ARTERY DISEASE", "DILATED ARDIOMYOPATHY", "VALVULAR HEART DISEASE", "CORONARY VASOPASM", "RIGHT VENTRICULAR"];
+      var yValues = [80, 10, 5, 3, 2];
+      var barColors = [
+        "#b91d47",
+        "#00aba9",
+        "#2b5797",
+        "#e8c3b9",
+        "#1e7145"
+      ];
+
+      new Chart("myChart", {
+        type: "pie",
+        data: {
+          labels: xValues,
+          datasets: [{
+            backgroundColor: barColors,
+            data: yValues
+          }]
+        },
+        options: {
+          title: {
+            display: true,
+            text: "Heart Related Disease Percentage"
+          }
+        }
+      });
+    </script>
+</body>
+</html>
+

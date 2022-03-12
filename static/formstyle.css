@@ -1,0 +1,55 @@
+body {
+  background: #c9d6ff; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to bottom,
+    #e2e2e2,
+    #c9d6ff
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to bottom, #e2e2e2, #c9d6ff) no-repeat fixed; /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.bg {
+  background: url("https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-371678.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top center;
+
+  padding-bottom: 100%;
+}
+
+.frame {
+  background-color: #fff;
+}
+
+.padded {
+  padding: 0 2rem;
+}
+
+.level.fill-height {
+  -webkit-box-align: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.col-6:first-child {
+  padding-left: 0;
+}
+
+.col-6:last-child {
+  padding-right: 0;
+}
+
+ul {
+  display: flex;
+  list-style: none;
+}
+
+li {
+  padding: 0 0.5rem;
+}
+
+.btn-info {
+  margin-left: 1rem;
+}

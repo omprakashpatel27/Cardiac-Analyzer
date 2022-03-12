@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+    <style>
+        body {
+                background: #c9d6ff; /* fallback for old browsers */
+                background: url(https://wallpaperaccess.com/full/185895.jpg) ;
+        }
+
+        .bg {
+                background: url("https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-371678.jpg");
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: top center;
+
+                padding-bottom: 100%;
+        }
+
+        .frame {
+                background-color: #fff;
+        }
+
+        .padded {
+                padding: 0 2rem;
+        }
+
+        .level.fill-height {
+                -webkit-box-align: stretch;
+                -ms-flex-align: stretch;
+                align-items: stretch;
+                display: -ms-flexbox;
+                display: flex;
+        }
+
+        .col-6:first-child {
+                padding-left: 0;
+        }
+
+        .col-6:last-child {
+           padding-right: 0;
+        }
+
+        ul {
+                display: flex;
+                list-style: none;
+        }
+
+        li {
+                padding: 0 0.5rem;
+        }
+
+        .btn-info {
+                margin-left: 1rem;
+        }
+
+    </style>
+    <head>
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+        />
+        <meta charset="UTF-8" />
+        <title>Contact Us</title>
+
+        <link
+            href="https://unpkg.com/cirrus-ui"
+            type="text/css"
+            rel="stylesheet"
+        />
+
+        <link
+            href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,600,700"
+            rel="stylesheet"
+        />
+        <link
+            href="https://fonts.googleapis.com/css?family=Montserrat:400,700"
+            rel="stylesheet"
+        />
+        <link
+            href="https://fonts.googleapis.com/css?family=Oswald"
+            rel="stylesheet"
+        />
+
+        <link
+            rel="stylesheet"
+            href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+            integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+            crossorigin="anonymous"
+        />
+      
+        <script
+            src="https://code.jquery.com/jquery-2.2.4.min.js"
+            integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+            crossorigin="anonymous"
+        ></script>
+    </head>
+
+    <body>
+        <div class="hero fullscreen">
+            <div class="hero-body">
+                <div style="margin: auto">
+                    <form action="{{ url_for('predict')}}" class="frame p-0" method="post">
+                        <div class="frame__body p-0">
+                            <div class="row p-0 level fill-height">
+                                <div class="col">
+                                    <div class="space xlarge"></div>
+                                    <div class="padded">
+                                        <h1 class="u-text-center u-font-alt">LAB REPORT ANALYZER</h1>
+                                        <div class="divider"></div>
+                                        <p class="u-text-center">Fill your details as mention in your lab report, you can also see the<a href ="https://i.postimg.cc/bwjWkb21/Screenshot-2022-03-12-105249.jpg">demo</a>report for more information</p>
+                                        <p class="u-text-center">{{msg}}</p>
+                                        <div class="divider"></div>
+
+                                        <div class="form-group">
+                                            <label class="form-group-label">
+                                                <span class="icon">
+                                                    <i class="fa-wrapper far fa-user"></i>
+                                                </span>
+                                            </label>
+                                            <input type="text" name="age" placeholder="Age : Type the age of user" required="required" />
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="form-group-label">
+                                                <span class="icon">
+                                                    <i class="fa-wrapper far fa-user"></i>
+                                                </span>
+                                            </label>
+                                            <input type="text" name="sex" placeholder="Gender : Fill 0 for female and 1 for male" required="required" />
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="form-group-label">
+                                                <span class="icon">
+                                                    <i class="fa-wrapper far fa-user"></i>
+                                                </span>
+                                            </label>
+                                            <input type="text" name="cp" placeholder="Cp : cp value mention in lab report" required="required" />
+                                        </div>
+                                         
+                                        <div class="form-group">
+                                            <label class="form-group-label">
+                                                <span class="icon">
+                                                    <i class="fa-wrapper far fa-user"></i>
+                                                </span>
+                                            </label>
+                                            <input type="text" name="trestbps" placeholder="Trestbps : trestbps value mention in lab report" required="required" />
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="form-group-label">
+                                                <span class="icon">
+                                                    <i class="fa-wrapper far fa-user"></i>
+                                                </span>
+                                            </label>
+                                            <input type="text" name="chol" placeholder="Chol : chol value mention in lab report" required="required" />
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="form-group-label">
+                                                <span class="icon">
+                                                    <i class="fa-wrapper far fa-user"></i>
+                                                </span>
+                                            </label>
+                                            <input type="text" name="fbs" placeholder="Fbs : fbs value mention in lab report" required="required" />
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="form-group-label">
+                                                <span class="icon">
+                                                    <i class="fa-wrapper far fa-user"></i>
+                                                </span>
+                                            </label>
+                                            <input type="text" name="restecg" placeholder="Restecg : restecg value mention in lab report" required="required" />
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="form-group-label">
+                                                <span class="icon">
+                                                    <i class="fa-wrapper far fa-user"></i>
+                                                </span>
+                                            </label>
+                                            <input type="text" name="thalach" placeholder="Thalach : thalach value mention in lab report" required="required" />
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="form-group-label">
+                                                <span class="icon">
+                                                    <i class="fa-wrapper far fa-user"></i>
+                                                </span>
+                                            </label>
+                                            <input type="text" name="exang" placeholder="Exang : exang value mention in lab report" required="required" />
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="form-group-label">
+                                                <span class="icon">
+                                                    <i class="fa-wrapper far fa-user"></i>
+                                                </span>
+                                            </label>
+                                            <input type="text" name="oldpeak" placeholder="Oldpeak : oldpeak value mention in lab report" required="required" />
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="form-group-label">
+                                                <span class="icon">
+                                                    <i class="fa-wrapper far fa-user"></i>
+                                                </span>
+                                            </label>
+                                            <input type="text" name="slope" placeholder="Slope : slope value mention in lab report" required="required" />
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="form-group-label">
+                                                <span class="icon">
+                                                    <i class="fa-wrapper far fa-user"></i>
+                                                </span>
+                                            </label>
+                                            <input type="text" name="ca" placeholder="Ca : ca value mention in lab report" required="required" />
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="form-group-label">
+                                                <span class="icon">
+                                                    <i class="fa-wrapper far fa-user"></i>
+                                                </span>
+                                            </label>
+                                            <input type="text" name="thal" placeholder="Thal : thal value mention in lab report" required="required" />
+                                        </div>
+
+                                        <div class="space"></div>
+
+                                        <div class="btn-group u-pull-right">
+                                            <button type="submit" class="btn btn-primary btn-block btn-large">Check health status</button>
+                                        </div>
+
+                                    </div>
+                                    <div class="space xlarge"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
+
+<!-- 
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  
+</head>
+
+<body>
+ <div class="login">
+	<h1>Heart Disease Prediction</h1>
+
+    <form action="{{ url_for('predict')}}"method="post">
+    	<input type="text" name="age" placeholder="Sepal_Length" required="required" />
+        <input type="text" name="sex" placeholder="Sepal_Width" required="required" />
+	<input type="text" name="cp" placeholder="Petal_Length" required="required" />
+	<input type="text" name="trestbps" placeholder="Petal_Width" required="required" />
+	<input type="text" name="chol" placeholder="Sepal_Length" required="required" />
+        <input type="text" name="fbs" placeholder="Sepal_Width" required="required" />
+	<input type="text" name="restecg" placeholder="Petal_Length" required="required" />
+	<input type="text" name="thalach" placeholder="Petal_Width" required="required" />
+	<input type="text" name="exang" placeholder="Sepal_Length" required="required" />
+        <input type="text" name="oldpeak" placeholder="Sepal_Width" required="required" />
+	<input type="text" name="slope" placeholder="Sepal_Width" required="required" />
+	<input type="text" name="ca" placeholder="Sepal_Length" required="required" />
+        <input type="text" name="thal" placeholder="Sepal_Width" required="required" />
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+   <br>
+   <br>
+   {%if data == 0%}
+   <h1>Hurray</h1>    
+
+   {%else%}
+   <h1>Danger</h1>
+	
+   {%endif%}
+ </div>
+
+
+</body>
+</html> -->

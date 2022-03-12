@@ -1,0 +1,25 @@
+<html>
+<head>
+     <meta charset="UTF-8">
+    <title> Login </title>
+    <link rel="stylesheet" href="../static/style.css">           
+</head>
+<body>
+       <div class="loginBox"> <img class="user" src="https://i.ibb.co/yVGxFPR/2.png" height="100px" width="100px">
+          <h3>Sign in here</h3>
+          {%if message %}
+            <p style="color: #59238F; text-align : center">{{message | safe}}</p>
+          {% endif %}
+          <form action="/register" method="POST">
+            <div class="inputBox">
+            <input id="username" name="username" type="text" placeholder="Enter Your Username"/>
+            <input id="password" name="password" type="password" placeholder="Enter Your Password"/>
+            </div> 
+            <input type="submit" value="Sign In">
+          </form> 
+          <p style="color: #59238F; text-align : center"><a href="/">Sign-Up</p>
+          <div class="text-center">
+          </div>
+        </div>
+</body>
+</html>

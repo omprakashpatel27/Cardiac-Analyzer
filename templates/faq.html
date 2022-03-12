@@ -1,0 +1,51 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../static/stylefaq.css">
+  <title>FAQ</title>
+  <script>
+    let summaryCollection = document.getElementsByTagName('summary');
+    let signsCollection = document.getElementsByClassName('faq-open-icon');
+
+    for(let i = 0; i < summaryCollection.length; i++) {
+      summaryCollection[i].onclick = function() {
+        if(signsCollection[i].innerHTML === '+') signsCollection[i].innerHTML = '—';
+        else signsCollection[i].innerHTML = '+';
+      }
+    }
+  </script>
+</head>
+<body>
+  <main>
+    <div class="container">
+      <h2 class="faq-heading">Frequently asked questions</h2>
+
+      <details class="faq-card">
+        <summary>What it does ? <span class="faq-open-icon">+</span></summary>
+        <span class="faq-card-spoiler">It will analyze your heart lab report and predict the result and also provide detail description.</span>
+      </details>
+      <details class="faq-card">
+        <summary>Why it is useful ?<span class="faq-open-icon">+</span></summary>
+        <span class="faq-card-spoiler">Not everyone has access to their family doctor so our platform helps them in analyzing their lab reports.</span>
+      </details>
+      <details class="faq-card">
+        <summary>How much accuracy it provides? <span class="faq-open-icon">+</span></summary>
+        <span class="faq-card-spoiler">Currently , accuracy is not that much due to inavailabilty of initial datasets, but in the upcoming version we provide you much accurate data</span>
+      </details>
+      <details class="faq-card">
+        <summary>Which Algorithm it uses for prediction ? <span class="faq-open-icon">+</span></summary>
+        <span class="faq-card-spoiler">It uses Random Forest Classifier for the prediction of data</span>
+      </details>
+      <details class="faq-card">
+        <summary>How to use? <span class="faq-open-icon">+</span></summary>
+        <span class="faq-card-spoiler">Just click on analyze your report and fill the required details and then click on submit.</span>
+      </details>
+    </div>
+  </main>
+</body>
+</html>
+
